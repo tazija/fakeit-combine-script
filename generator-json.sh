@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-folders=10
-records=5000
+folders=1
+records=50000
 for i in `seq 0 $folders`; do
     n=$((i * $records))
     sed "s/%customer_id%/${n}/g" ./models/customers_template.yaml > ./models/customers_generated.yaml
