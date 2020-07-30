@@ -6,6 +6,7 @@ data:
   fixed: 3000
   pre_run: |
     globals.order_id = %order_id%
+    globals.user_id = %order_id%
 
 properties:
   _id:
@@ -16,7 +17,7 @@ properties:
   customer_id:
     type: string
     data:
-      build: "return 'not implemented'"
+      build: "return user_id"
   year:
     type: string
     data:
