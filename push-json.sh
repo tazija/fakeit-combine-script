@@ -9,10 +9,8 @@ mkdir combined-results
 for i in `seq $start $end`; do
   filepath=./results/$i
   echo $filepath
-  find $filepath -type f -name 'customer*.json' -exec cat {} + | jq -c -s . > combined-results/combined-customers$i.json
-  find $filepath -type f -name 'order*.json' -exec cat {} + | jq -c -s . > combined-results/combined-orders$i.json
-  mongoimport --uri "mongodb://admin:bu1ra2ti3no4@test-free-cluster-shard-00-00.l6tk0.mongodb.net:27017,test-free-cluster-shard-00-01.l6tk0.mongodb.net:27017,test-free-cluster-shard-00-02.l6tk0.mongodb.net:27017/workloada?ssl=true&replicaSet=atlas-ptt4hq-shard-0&authSource=admin&retryWrites=true&w=majority" --collection customers --drop --file combined-results/combined-customers$i.json
-  mongoimport --uri "mongodb://admin:bu1ra2ti3no4@test-free-cluster-shard-00-00.l6tk0.mongodb.net:27017,test-free-cluster-shard-00-01.l6tk0.mongodb.net:27017,test-free-cluster-shard-00-02.l6tk0.mongodb.net:27017/workloada?ssl=true&replicaSet=atlas-ptt4hq-shard-0&authSource=admin&retryWrites=true&w=majority" --collection orders --drop --file combined-results/combined-orders$i.json
+  mongoimport --uri "mongodb://admin:bu1ra2ti3no4@test-free-cluster-shard-00-00.l6tk0.mongodb.net:27017,test-free-cluster-shard-00-01.l6tk0.mongodb.net:27017,test-free-cluster-shard-00-02.l6tk0.mongodb.net:27017/workloada?ssl=true&replicaSet=atlas-ptt4hq-shard-0&authSource=admin&retryWrites=true&w=majority" --collection customers --jsonArray --file combined-results/combined-customers$i.json
+  mongoimport --uri "mongodb://admin:bu1ra2ti3no4@test-free-cluster-shard-00-00.l6tk0.mongodb.net:27017,test-free-cluster-shard-00-01.l6tk0.mongodb.net:27017,test-free-cluster-shard-00-02.l6tk0.mongodb.net:27017/workloada?ssl=true&replicaSet=atlas-ptt4hq-shard-0&authSource=admin&retryWrites=true&w=majority" --collection orders --jsonArray --file combined-results/combined-orders$i.json
 
 #  for i in *; do cp "$i" ../prjshp/; done
 #  > $filepath/combined-customers.json

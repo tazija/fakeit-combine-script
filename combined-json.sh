@@ -6,8 +6,8 @@ end=$2
 for i in `seq $start $end`; do
   filepath=./results/$i
   echo $filepath
-  find $filepath -type f -name 'customer*.json' -exec cat {} + | jq -c -s . > $filepath/combined-customers.json
-  find $filepath -type f -name 'order*.json' -exec cat {} + | jq -c -s . > $filepath/combined-orders.json
+  find $filepath -type f -name 'customer*.json' -exec cat {} + | jq -c -s . > combined-results/combined-customers.json
+  find $filepath -type f -name 'order*.json' -exec cat {} + | jq -c -s . > combined-results/combined-orders.json
 
 #  for i in *; do cp "$i" ../prjshp/; done
 #  > $filepath/combined-customers.json
