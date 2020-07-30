@@ -6,18 +6,17 @@ data:
   fixed: 3000
   pre_run: |
     globals.order_id = %order_id%
-    globals.user_id = %order_id%
 
 properties:
   _id:
     type: string
     data:
       post_build: |
-        return 'order---' + globals.order_id++;
+        return 'order---' + globals.order_id;
   customer_id:
     type: string
     data:
-      build: "return user_id"
+      build: "return 'customer---' + globals.order_id++"
   year:
     type: string
     data:
