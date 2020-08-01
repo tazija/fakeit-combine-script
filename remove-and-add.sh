@@ -11,3 +11,6 @@ cd ../fakeit
 chmod +x combined-json.sh
 chmod +x generator-json.sh
 chmod +x push-json.sh
+
+cp customers_template.yaml models/
+cp orders_template.yaml models/

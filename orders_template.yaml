@@ -12,11 +12,11 @@ properties:
     type: string
     data:
       post_build: |
-        return 'order---' + globals.order_id;
+        return 'order---' + globals.order_id++;
   customer_id:
     type: string
     data:
-      build: "return 'customer---' + globals.order_id++"
+      build: "return 'customer---' + globals.order_id"
   year:
     type: string
     data:

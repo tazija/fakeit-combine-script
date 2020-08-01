@@ -7,8 +7,8 @@ end=$2
 for i in `seq $start $end`; do
   filepath=./results/$i
   echo $filepath
-  mongoimport --uri "mongodb://admin:bu1ra2ti3no4@test-free-cluster-shard-00-00.l6tk0.mongodb.net:27017,test-free-cluster-shard-00-01.l6tk0.mongodb.net:27017,test-free-cluster-shard-00-02.l6tk0.mongodb.net:27017/workloada?ssl=true&replicaSet=atlas-ptt4hq-shard-0&authSource=admin&retryWrites=true&w=majority" --collection customers --jsonArray --file combined-results/combined-customers$i.json
-  mongoimport --uri "mongodb://admin:bu1ra2ti3no4@test-free-cluster-shard-00-00.l6tk0.mongodb.net:27017,test-free-cluster-shard-00-01.l6tk0.mongodb.net:27017,test-free-cluster-shard-00-02.l6tk0.mongodb.net:27017/workloada?ssl=true&replicaSet=atlas-ptt4hq-shard-0&authSource=admin&retryWrites=true&w=majority" --collection orders --jsonArray --file combined-results/combined-orders$i.json
+  mongoimport --uri "mongodb://admin:bu1ra2ti3no4@test-free-cluster-shard-00-00.l6tk0.mongodb.net:27017,test-free-cluster-shard-00-01.l6tk0.mongodb.net:27017,test-free-cluster-shard-00-02.l6tk0.mongodb.net:27017/workload?ssl=true&replicaSet=atlas-ptt4hq-shard-0&authSource=admin&retryWrites=true&w=majority" --collection customer --jsonArray --file combined-results/combined-customers$i.json
+  mongoimport --uri "mongodb://admin:bu1ra2ti3no4@test-free-cluster-shard-00-00.l6tk0.mongodb.net:27017,test-free-cluster-shard-00-01.l6tk0.mongodb.net:27017,test-free-cluster-shard-00-02.l6tk0.mongodb.net:27017/workload?ssl=true&replicaSet=atlas-ptt4hq-shard-0&authSource=admin&retryWrites=true&w=majority" --collection order --jsonArray --file combined-results/combined-orders$i.json
 
 #  for i in *; do cp "$i" ../prjshp/; done
 #  > $filepath/combined-customers.json
