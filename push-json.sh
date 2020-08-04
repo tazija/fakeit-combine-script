@@ -7,8 +7,9 @@ end=$2
 for i in `seq $start $end`; do
   filepath=./results/$i
   echo $filepath
-  mongoimport --uri "mongodb://admin:bu1ra2ti3no4@6-nodes-shard-00-00.l6tk0.mongodb.net:27016,6-nodes-shard-00-01.l6tk0.mongodb.net:27016,6-nodes-shard-00-02.l6tk0.mongodb.net:27016,6-nodes-shard-01-00.l6tk0.mongodb.net:27016,6-nodes-shard-01-01.l6tk0.mongodb.net:27016,6-nodes-shard-01-02.l6tk0.mongodb.net:27016/workload?ssl=true&authSource=admin&w=majority&readPreference=nearest&retryWrites=true" --collection customer --jsonArray --file combined-results/combined-customers$i.json
-  mongoimport --uri "mongodb://admin:bu1ra2ti3no4@6-nodes-shard-00-00.l6tk0.mongodb.net:27016,6-nodes-shard-00-01.l6tk0.mongodb.net:27016,6-nodes-shard-00-02.l6tk0.mongodb.net:27016,6-nodes-shard-01-00.l6tk0.mongodb.net:27016,6-nodes-shard-01-01.l6tk0.mongodb.net:27016,6-nodes-shard-01-02.l6tk0.mongodb.net:27016/workload?ssl=true&authSource=admin&w=majority&readPreference=nearest&retryWrites=true" --collection order --jsonArray --file combined-results/combined-orders$i.json
+  
+  mongoimport --uri "mongodb://admin:bu1ra2ti3no4@9-nodes-shard-00-00.l6tk0.mongodb.net:27016,9-nodes-shard-00-01.l6tk0.mongodb.net:27016,9-nodes-shard-00-02.l6tk0.mongodb.net:27016,9-nodes-shard-01-00.l6tk0.mongodb.net:27016,9-nodes-shard-01-01.l6tk0.mongodb.net:27016,9-nodes-shard-01-02.l6tk0.mongodb.net:27016,9-nodes-shard-02-00.l6tk0.mongodb.net:27016,9-nodes-shard-02-01.l6tk0.mongodb.net:27016,9-nodes-shard-02-02.l6tk0.mongodb.net:27016/workload?ssl=true&authSource=admin&retryWrites=true&w=majority" --collection customer --jsonArray --file combined-results/combined-customers$i.json
+  mongoimport --uri "mongodb://admin:bu1ra2ti3no4@9-nodes-shard-00-00.l6tk0.mongodb.net:27016,9-nodes-shard-00-01.l6tk0.mongodb.net:27016,9-nodes-shard-00-02.l6tk0.mongodb.net:27016,9-nodes-shard-01-00.l6tk0.mongodb.net:27016,9-nodes-shard-01-01.l6tk0.mongodb.net:27016,9-nodes-shard-01-02.l6tk0.mongodb.net:27016,9-nodes-shard-02-00.l6tk0.mongodb.net:27016,9-nodes-shard-02-01.l6tk0.mongodb.net:27016,9-nodes-shard-02-02.l6tk0.mongodb.net:27016/workload?ssl=true&authSource=admin&retryWrites=true&w=majority" --collection order --jsonArray --file combined-results/combined-orders$i.json
 
 #  for i in *; do cp "$i" ../prjshp/; done
 #  > $filepath/combined-customers.json
