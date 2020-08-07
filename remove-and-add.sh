@@ -4,6 +4,7 @@ rm combined-json.sh
 rm generator-json.sh
 rm push-json-6.sh
 rm push-json-9.sh
+rm push-json-18.sh
 
 cd ../fakeit-combine-script/ && git pull
 cp * ../fakeit
