@@ -1,4 +1,4 @@
-folder_count=4000
+folder_count=1
 record_count=25000
 thread_count=20
 
@@ -9,7 +9,7 @@ mkdir -p models results &> /dev/null
 function generate {
   local start_index=$1
   local count_per_thread=$2
-  local end_index=`expr $start_index + $count_per_thread`; echo $end_index
+  local end_index=`expr $start_index + $count_per_thread - 1`;
   local record_count=$3
   for index in `seq $start_index $end_index`; do
     n=$(($index * $record_count))
