@@ -2,6 +2,8 @@
 start=$1
 end=$2
 
+mkdir -p combined-results/ &> /dev/null
+
 #for filepath in $(ls -d results/*); do
 for i in `seq $start $end`; do
   filepath=./results/$i
