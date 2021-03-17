@@ -24,5 +24,7 @@ function generate {
 
 for ((folder_index = 0, thread = 0; thread < thread_count; thread++, folder_index+=max_folder_count_per_thread)); do
   folder_count_per_thread=$(python -c "print min($max_folder_count_per_thread, $folder_count - $folder_index)")
-  generate $folder_index $folder_count_per_thread $record_count &
+  if ((folder_count_per_thread > 0)); then
+    generate $folder_index $folder_count_per_thread $record_count &
+  fi
 done
