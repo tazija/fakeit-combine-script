@@ -1,4 +1,4 @@
-folder_count=1
+folder_count=4000
 record_count=25000
 thread_count=20
 
