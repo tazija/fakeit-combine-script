@@ -7,5 +7,5 @@ for i in `seq 2001 $folders`; do
     sed "s/%order_id%/${n}/g" ./models/orders_template.yaml > ./models/orders_generated.yaml
 
     echo "$(date) >> generating customers and orders for ids from ${n}"
-    bin/fakeit -m ./models/customers_generated.yaml,./models/orders_generated.yaml -n $records -o json -d ./results/$i
+    fakeit -m ./models/customers_generated.yaml,./models/orders_generated.yaml -n $records -o json -d ./results/$i
 done
