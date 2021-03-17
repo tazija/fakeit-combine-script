@@ -18,7 +18,7 @@ function generate {
     echo "$(date) >> generating customers and orders for ids from ${n}"
     fakeit -m ./models/customers_generated_$index.yaml,./models/orders_generated_$index.yaml -n $record_count -o json -d ./results/$index
     ./combined-json.sh $index $index
-    rm -rf ./models/customers_generated_$index.yaml ./models/orders_generated_$index.yaml $./results/$index &> /dev/null
+    rm -rf ./models/customers_generated_$index.yaml ./models/orders_generated_$index.yaml ./results/$index &> /dev/null
   done
 }
 
