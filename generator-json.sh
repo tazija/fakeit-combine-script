@@ -1,4 +1,6 @@
-folder_count=4000
+# generate 2000 * 25000 = 50 million customers
+
+folder_count=2000
 record_count=25000
 thread_count=20
 
