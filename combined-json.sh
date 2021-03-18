@@ -8,8 +8,8 @@ mkdir -p combined-results/ &> /dev/null
 for i in `seq $start $end`; do
   filepath=./results/$i
   echo $filepath
-  find $filepath -type f -name 'customer*.json' -exec cat {} + | jq -c -s . > combined-results/combined-customers$i.json
-  find $filepath -type f -name 'order*.json' -exec cat {} + | jq -c -s . > combined-results/combined-orders$i.json
+  find $filepath -type f -name 'customer*.json' -exec cat {} + | jq -c -s . > combined-results/customers$i.json
+  find $filepath -type f -name 'order*.json' -exec cat {} + | jq -c -s . > combined-results/orders$i.json
 
 #  for i in *; do cp "$i" ../prjshp/; done
 #  > $filepath/combined-customers.json
