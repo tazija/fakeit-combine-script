@@ -1,5 +1,6 @@
 # generate 2000 * 25000 = 50 million customers
 
+folder_start=2000
 folder_count=2000
 record_count=25000
 thread_count=20
@@ -27,6 +28,6 @@ function generate {
 for ((folder_index = 0, thread = 0; thread < thread_count; thread++, folder_index+=max_folder_count_per_thread)); do
   folder_count_per_thread=$(python -c "print min($max_folder_count_per_thread, $folder_count - $folder_index)")
   if ((folder_count_per_thread > 0)); then
-    generate $folder_index $folder_count_per_thread $record_count &
+    generate `expr $folder_index + $folder_start` $folder_count_per_thread $record_count &
   fi
 done
